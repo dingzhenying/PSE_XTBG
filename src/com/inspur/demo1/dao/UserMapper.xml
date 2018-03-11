@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspur.demo1.dao.UserMapper">
+	<resultMap type="com.inspur.demo1.bean.User" id="userMap">
+		<id property="id" column="id" />  
+		<result property="userid" column="user_id" />
+		<result property="username" column="user_name" />
+		<result property="password" column="user_pwd" />
+		<result property="sj_id" column="sj_id" />
+		<result property="isParent" column="is_parent"/>
+	</resultMap>
+
+
+	<select id="findAll" resultMap="userMap">
+		SELECT * FROM t_user
+	</select>
+	<select id="findOne" parameterType="String" resultMap="userMap">
+		SELECT * FROM t_user WHERE user_id=#{userid}
+	</select>
+	<insert id="adduser" parameterType="com.inspur.demo1.bean.User">
+		INSERT INTO t_user (user_id,user_name,user_pwd,sj_id) VALUES (#{userid},#{username},#{password},#{sj_id})
+ 		<selectKey keyProperty="id" resultType="int">
+		SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	<select id="getByUserName" parameterType="string" resultMap="userMap">
+		SELECT * FROM t_user WHERE user_name=#{name}
+	</select>
+	<select id="getByUserId" parameterType="string" resultMap="userMap">
+		SELECT * FROM t_user WHERE user_id=#{userid}
+	</select>
+		<delete id="delete" parameterType="String">
+		DELETE FROM t_user WHERE user_id=#{userid}
+	</delete>
+	
+	<update id="update" parameterType="com.inspur.demo1.bean.User">
+		UPDATE t_user SET user_name=#{username},user_pwd=#{password},sj_id=#{sj_id} WHERE user_id=#{userid}
+	</update>
+</mapper>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>表单</title>
+
+    <!-- 需要引用的CSS -->
+    <link rel="stylesheet" type="text/css" href="../../dist/skin/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../../dist/skin/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../../dist/skin/css/ui.css">
+    <link rel="stylesheet" type="text/css" href="../../dist/skin/css/form.css">
+    <style type="text/css">
+	label {
+		font-weight: normal;
+		text-align: right;
+	}
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	<!-- 页面结构 -->
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-xs-4 control-label">名称</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control ue-form" id="userName"
+						name="userName" value="" placeholder="名称" />			
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">账号状态</label>
+				<div class="col-xs-6">
+					<select class="form-control ue-form" name="userStatus" id="status">
+						<option value="">请选择</option>
+						<option value="N">启用</option>
+						<option value="X">停用</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">学历</label>
+				<div class="col-xs-6 text-left radio">
+					<label><input type="radio"  name="userArchiveEducation" value="0"/>本科 </label>					
+					<label><input type="radio"  name="userArchiveEducation" value="1"/>硕士</label>
+					<label><input type="radio"  name="userArchiveEducation" value="2"/>博士</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">爱好</label>
+				<div class="col-xs-6 text-left checkbox">					
+						<label><input type="checkbox" value="0" name="archivesFavor"/>篮球</label>			    
+						<label><input type="checkbox" value="1" name="archivesFavor"/>足球</label>
+						<label><input type="checkbox" value="2" name="archivesFavor"/>排球</label>				
+				</div>			
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label">简述</label>
+				<div class="col-xs-6">
+					<textarea id="sketch" class="form-control ue-form" rows="4" style="resize:none;"></textarea>	
+				</div>			
+			</div>
+			<div class="form-group" >
+				<label class="col-xs-4 control-label"></label>
+				<div class="col-xs-6">				 
+					<button type="button" class="btn ue-btn-primary" id="validate">
+						保存
+					</button>
+					<button type="button" class="btn ue-btn" id="cancel">
+						取消
+					</button>
+				</div>
+			</div>
+		</form>
+	
+    <!-- 需要引用的JS -->
+    <script type="text/javascript" src="../../dist/js/jquery.js"></script>
+    <script type="text/javascript" src="../../dist/js/form.js"></script>
+    <script type="text/javascript">
+    $(function() {
+    	try {
+			var dialog = parent.dialog.get(window);
+		} catch (e) {
+			$('body').append(
+				'<p><strong>Error:</strong> 跨域无法无法操作 iframe 对象</p>'
+				+'<p>chrome 浏览器本地会认为跨域，请使用 http 方式访问当前页面</p>'
+			);
+			return;
+		}		
+		$('#validate').on('click', function() {
+			var r = $('input[type="radio"]:checked').val();
+			var c = '';
+			$('input[type="checkbox"]:checked').each(function() {
+				c += $(this).val();
+			});
+			var rtns = {
+				userName: $('#userName').val(),
+				status: $('#status').val(),
+				userArchiveEducation: r,
+				archivesFavor: c,
+				sketch: $('#sketch').val()
+			};
+			dialog.close(rtns);
+			dialog.remove();
+		});
+		$("#cancel").on("click",function(){
+			dialog.remove();
+		})
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+/*垂直菜单导航*/
+.ue-menu-left {
+	width: 200px;
+	border-right: 0;
+}
+.ue-left-top {
+	height: 52px;
+	background-color: #000;
+	line-height: 52px;
+	padding-left: 15px;
+}
+.ue-left-content .ue-vmenu {
+	background-color: #213048;
+}
+.ue-left-content {
+	top: 52px;
+	overflow: hidden;
+}
+.ue-left-content li {
+	height: 48px;
+	font-size: 14px;
+	font-family: "Microsoft YaHei" ! important;
+}
+.ue-vmenu li a {
+	line-height: 48px;
+	color: #ddd;
+	padding-left: 30px;
+}
+.ue-left-content li a .fa {
+	margin-right: 10px;
+	font-size: 17px;
+}
+.ue-vmenu ul li a:focus, .ue-vmenu ul li a:hover:hover {
+	background-color: #008ed7;
+	color: #ddd;
+}
+.ue-vmenu li.curr a {
+	color: #ddd;
+	background-color: #008ed7;
+}
+.ue-vmenu .ue-vmenu-icon {
+	display: none;
+}
+.active {
+	color: #ddd;
+	background-color: #008ed7;
+}
+/*图标菜单*/
+.icon-menu {
+	width: 50px;
+	height: 100%;
+	position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #213048;
+}
+.icon-menu-top {
+	height: 52px;
+	line-height: 52px;
+	background-color: #000;
+	padding-left: 8px;
+}
+.icon-menu-content>ul>li {
+	height: 48px;
+	line-height: 48px;
+	width: 50px;
+	text-align: center;
+	font-size: 23px;
+}
+.icon-menu-content ul li a{
+	color: #ddd;
+}
+.icon-menu-content ul li:focus, .icon-menu-content ul li:hover {
+	background-color: #008ed7;
+	color: #ddd;
+}
+.hover-change-hover {
+	background-color: #008ed7;
+}
+.icon-menu-second {
+	position: absolute;
+	width: 120px;
+    left: 50px;
+    top: 244px;
+    background-color: #008ed7;
+    opacity: 0.7;
+    font-size: 14px;
+	font-family: "Microsoft YaHei" ! important;
+	height: auto;
+	text-align: center;
+	z-index: 999;
+}
+.icon-menu-second li a{
+	color: #ddd;
+}
+.icon-menu-second li {
+	height: 48px;
+	line-height: 48px;
+}
+/*右侧布局*/
+.menu-right {
+	position: absolute;
+    left: 200px;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #f6f6f6;
+}
+.menu-right-top {
+	width: 100%;
+	float: left;
+	height: 52px;
+	line-height: 52px;
+	box-shadow: 0 0 3px #999;
+	background-color: white;
+}
+.menu-right-top .fa.fa-dedent, .menu-right-top .fa.fa-indent {
+	margin-left: 18px;
+}
+#menuShow {
+	display: inline-block;
+	padding-right: 20px;
+    height: 52px;
+    width: 50px;
+}
+.login-msg {
+	font-size: 14px;
+	float: right;
+	margin-right: 50px;
+	font-family: "Microsoft YaHei" ! important;
+}
+.login-msg a {
+	color: #666;
+	text-decoration:none;
+}
+.login-msg a.doc {
+	margin-right: 15px;
+}
+#menuShow:hover {
+	 cursor:pointer;
+}
+.crum {
+	width: 100%;
+	background-color: #fff;
+	height: 20px;
+	margin-top: 55px;
+}
+.breadcrumb {
+	padding: 0 15px;
+	background-color: #f6f6f6;
+}
+.menu-right-content {
+	background-color: #fff;
+	width: 98%;
+	height: 100%;
+	margin-left: 1%;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+.menu-right-content p{
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 14px;
+}

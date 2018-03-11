@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspur.demo1.dao.OrgMapper">
+	<resultMap type="com.inspur.demo1.bean.User" id="organResultMap">
+		<id property="userid" column="user_id" />  
+		<result property="username" column="user_name" />
+		<result property="password" column="user_pwd" />
+		<result property="sj_id" column="sj_id" />
+		<result property="isParent" column="is_parent"/>
+	</resultMap>
+	<select id="findAllNodes" parameterType="String" resultMap="organResultMap">
+		select * from t_user where sj_id=#{userid}
+	</select>
+</mapper>

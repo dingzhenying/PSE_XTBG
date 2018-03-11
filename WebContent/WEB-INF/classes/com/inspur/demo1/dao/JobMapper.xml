@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspur.demo1.dao.JobMapper">
+	<resultMap type="com.inspur.demo1.bean.Plan" id="JobMap">
+			<id property="id" column="id" />  
+			<result property="userid" column="user_id" />
+			<result property="plantime" column="DAY_SHORT_DESC" />
+			<result property="week" column="WEEK_ID" />
+			<result property="job_zao" column="job_zao" />
+			<result property="job_zhong" column="job_zhong" />
+			<result property="job_wan" column="job_wan" />
+			<result property="day" column="day" />
+			<result property="weekday" column="WEEK_DESC" />
+	</resultMap>
+	<select id="findAll" resultMap="JobMap">
+		SELECT * FROM user_plan
+	</select>
+	
+	<select id="findOne" parameterType="String" resultMap="JobMap">
+		SELECT * FROM user_plan WHERE user_id=#{userid}
+	</select>
+	
+	<select id="getById" parameterType="String" resultMap="JobMap">
+		SELECT * FROM user_plan WHERE id=#{id}
+	</select>
+	
+	<select id="getByUserId" parameterType="string" resultMap="JobMap">
+		SELECT * FROM user_plan WHERE user_id=#{userid}
+	</select>
+	
+	<insert id="addjob" parameterType="com.inspur.demo1.bean.Plan">
+		INSERT INTO user_plan (user_id,c_time,week,job_zao,job_zhong,job_wan,day) VALUES (#{userid},#{plantime},#{week},#{job_zao},#{job_zhong},#{job_wan},#{day})
+ 		<selectKey keyProperty="id" resultType="int">
+		SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM user_plan WHERE id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="com.inspur.demo1.bean.Plan">
+		UPDATE user_plan SET c_time=#{plantime},week=#{week},job_zao=#{job_zao},job_zhong=#{job_zhong},job_wan=#{job_wan},day=#{day}WHERE id=#{id}
+	</update>
+
+	<select id="findPlan" parameterType="com.inspur.demo1.bean.Plan" resultMap="JobMap">
+		SELECT * FROM user_plan RIGHT JOIN `week`  on user_plan.`day`=`week`.`weekday` and user_id=#{userid} and week=#{week} 
+	</select>
+
+	<select id="getplantime" parameterType="java.util.Map" resultMap="JobMap">
+		SELECT * FROM user_plan where user_id=#{userid} and c_time=#{plantime};
+	</select>
+	
+	<select id="finddimplan" parameterType="com.inspur.demo1.bean.Plan" resultMap="JobMap">
+		select * from  user_plan u RIGHT JOIN (select * FROM  dim_day WHERE WEEK_ID=#{week}) d ON u.c_time=d.day_short_desc and  user_id=#{userid}
+	</select>
+	
+</mapper>

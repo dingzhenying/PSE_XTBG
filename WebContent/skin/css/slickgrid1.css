@@ -1,0 +1,29 @@
+html, body {
+	height: 100%;
+	font-size: 12px;
+    font-weight: 100;
+}
+.container {
+	width: 90%;
+	height: 90%;
+	margin-left: 5%;
+}
+.slickgrid {
+	height: auto;
+	width: auto;
+}
+.form-inline{
+	margin-left: 0px;
+    margin-bottom: 10px;
+}
+.popover {
+	max-width: 300px;
+}
+.ue-form {
+	line-height: 1px;
+	padding-top: 12px\9;
+	padding-bottom: 12px\9;
+}
+.slick-cell {
+    text-overflow: clip;
+}

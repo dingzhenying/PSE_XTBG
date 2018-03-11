@@ -1,0 +1,144 @@
+body {
+	font: 14px arial,microsoft yahei,simsun,simhei,sans-serif;
+}
+.navbar {
+	margin-bottom: 0;
+	border-bottom: 1px solid #ddd;
+}
+.navbar-header {
+	margin-left: 15px;
+}
+.navbar-brand {
+	padding-left: 170px;
+	background-image: url(../images/login-brand.png);
+	background-repeat: no-repeat;
+	color: #333;
+	background-position: 0 13px;
+}
+.navbar-brand span {
+	font-size: 18px;
+	color: #ddd;
+	margin: auto 10px auto 0px;
+}
+.navbar-brand:hover {
+	color: #333;
+}
+.navbar-right a {
+	color: #027bff;
+}
+.navbar-right a.fa {
+	font-size: 20px;
+	color: #027bff;
+}
+@media (min-width: 768px) {
+	.navbar-nav>li>a {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.navbar-right {
+		margin-top: 5px;
+		margin-right: 20px;
+	}
+}
+.navbar-nav>li>a {
+	display: inline-block;
+}
+.nav>li>a:focus, .nav>li>a:hover, 
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+	background-color: transparent;
+}
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover {
+	border-bottom: 1px solid #333;
+}
+.navbar-nav .dropdown {
+	padding: 10px;
+}
+.navbar-nav .dropdown-menu {
+    width: 240px;
+    padding: 0;
+    padding-top: 10px;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: 0 1px 3px #ccc;
+}
+.navbar-nav .app.dropdown-menu {
+	width: 325px;
+	padding-top: 0;
+}
+.app.drop-area {
+	padding: 23px;
+}
+.drop-area {
+	height: auto; 
+	max-height: 500px;
+}
+.drop-area>li>a {
+	padding: 10px 20px;
+	display: block;
+	clear: both;
+	font-weight: 400;
+	line-height: 1.42857143;
+	color: #333;
+	white-space: nowrap;
+}
+.more, .exit {
+	display: block;
+	background-color: #f5f5f5;
+	text-align: center;
+	width: 100%;
+	line-height: 40px;
+	background-color: #f5f5f5;
+}
+.exit {
+	text-align: right;
+	margin-top: 30px;
+}
+.exit > a {
+	padding: 5px 15px;
+	border: 1px solid #ddd;
+	margin-right: 20px;
+	color: #333;
+}
+.exit > a:hover {	
+	color: #fff;
+	background-color: #3e99ff;
+	border: 0;
+}
+.dropdown-menu a:hover {
+	color: #0251e5;
+}
+.user-photo {
+	float: left;
+	margin: 10px 10px 20px 20px;
+}
+.user-info {
+	line-height: 2;
+	padding: 0 10px 10px 120px;
+	margin: 10px 10px 0 10px;
+}
+.user-action {
+	display: block;
+	color: #027bff;
+}
+.nav .open>a:hover {
+	background-color: #fff;
+	color: #0251e5;
+}
+.title-icon {
+	width: 24px;
+	height: 24px;
+	margin-right: 10px;
+}
+.fa.fa-bars.pull-left {
+	margin-top: 14px;
+	margin-right: 14px;
+	font-size: 20px;
+	color: #30c0d0;
+}
+.ue-left-top {
+	background-color: #fbfbfb;
+	color: #000;
+}
+.ue-icon-title .ue-icon {
+	background: none;
+}
